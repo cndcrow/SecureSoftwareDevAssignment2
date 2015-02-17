@@ -8,8 +8,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'SSDA2.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', home),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', hello),
     url(r'^time/$', curr_date),
-    url(r'^time/plus(\d{1,2})/$', hours_ahead),
+    url(r'^time/plus/(\d{1,2})/$', hours_ahead),
 )
