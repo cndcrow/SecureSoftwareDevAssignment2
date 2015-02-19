@@ -17,7 +17,7 @@
    	{% if list %}
 		<u1l>
 		    {% for list in list %}
-		    <li>{{list.fname}}</li>
+		    <li>{{list.fname}}  {{list.lname}}  {{list.email}}  {{list.passwd}}</li>
 		    {% endfor %} 
 		</ul>
 	{% else %}
