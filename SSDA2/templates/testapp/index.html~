@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<div align="center">
+    <head>
+        <title>Andrew & Jeremy's Home Page.</title>
+    </head>
+
+    <body>
+        <h1>Welcome to this website.</h1>
+        HOLY SHIT WE DISPLAYED SOMETHING! KIBAAAA <strong>{{ boldmessage }}</strong><br />
+        <a href="/testapp/about/">About</a><br />
+	<img src="{% static "kiba.jpg" %}" alt="Picture of KIBA!" /><br /> 
+   	{% if list %}
+		<u1l>
+		    {% for list in list %}
+		    <li>{{list.fname}}</li>
+		    {% endfor %} 
+		</ul>
+	{% else %}
+		<strong> There are no categories. </strong>
+	{% endif %}
+<br><br><br>
+<a href="/testapp/register/">Sign-Up</a>
+	
+    </body>
+</div>
+</html>
