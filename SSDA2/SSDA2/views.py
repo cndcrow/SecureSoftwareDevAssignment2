@@ -24,10 +24,10 @@ def hours_ahead(request, offset):
     html = "<html><body> In %s hour(s), it will be %s </body></html>" % (offset, dt) 
     return HttpResponse(html)
 
-def search_form(request):
-    return render(request, 'search_form.html')
+def login(request):
+    return render(request, 'login.html')
 
-def search(request):
+def try_login(request):
     if 'q' in request.GET and request.GET['q']:
         message = request.GET['q']
 	db = sqlite3.connect('db.sqlite3')
@@ -35,6 +35,4 @@ def search(request):
 	cursor.execute("INSERT INTO numbers(number) VALUES(?)", [message])
 	message2 = cursor.execute("SELECT number from numbers")
 	db.commit()
-    else:
-        return render(request, 'search_form.html', {'error', True})
     return HttpResponse(message2)
