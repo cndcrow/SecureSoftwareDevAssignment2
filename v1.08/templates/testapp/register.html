@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+    </head>
+
+    <body>
+        <h1>Register with us</h1>
+
+        {% if registered %}
+        <a href="/rango/">Return to the homepage.</a><br />
+        {% else %}
+        <form id="register_form" method="post" action="/testapp/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {% for hidden in register_form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in register_form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+<br>
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+    </body>
+</html>

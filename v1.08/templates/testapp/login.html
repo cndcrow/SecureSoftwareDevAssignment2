@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Login Page</title>
+    </head>
+
+    <body>
+	<h1>Login<h1>
+
+	<form id="login_form" method="post" action="/testapp/login/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {{ form.email.errors }}
+	    <label for="{{form.email.id_for_label }}">Email: </label>
+	    {{ form.email }}
+	    
+	    {{ form.passwd.errors }}
+	    <label for="{{ form.password.id_for_label }}">Password: </label>
+	    {{ form.passwd }}
+            
+	    <input type="submit" name="submit" value="Login" />
+    </body>
+</html>
