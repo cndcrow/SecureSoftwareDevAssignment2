@@ -1,19 +1,9 @@
-
+from django.template.loader import get_template
+from django.shortcuts import render
+from django.template import Context
 from django.http import HttpResponse
 import datetime
 
-def hello(request):
-    return HttpResponse("Hello World!")
-
 def curr_date(request):
     now = datetime.datetime.now()
-    html = "<html><body>It is %s.</body></html>" % now
-    return HttpResponse(html)
-
-def hours_ahead(request, offset):
-    try:
-        offset = int(offset)
-    except ValueError:
-        raise Http404()
-    dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "<html><body> 
+    return render(request, 'curr_date.html', {'curr_date': now})
